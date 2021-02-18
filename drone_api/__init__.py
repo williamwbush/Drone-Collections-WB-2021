@@ -1,4 +1,5 @@
 from flask import Flask
+from flask_cors import CORS
 
 # TODO: Import Config Object for Flask Project
 from config import Config
@@ -17,6 +18,8 @@ from flask_marshmallow import Marshmallow
 
 app = Flask(__name__)
 app.config.from_object(Config)
+
+CORS(app)
 
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
